@@ -23,7 +23,7 @@ const Hearder = () => {
                         })}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" style={isActive => ({
+                        <NavLink to="/about_me" style={isActive => ({
                             color: isActive ? "cyan" : "white"
                         })}>About</NavLink>
                     </li>

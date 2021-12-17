@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './BlogDetails.css'
 
 const BlogDetails = () => {
     const { blogID } = useParams();
     const [blog, setBlog] = useState({})
+    const history = useHistory()
 
     useEffect(() => {
         const API = `https://jsonplaceholder.typicode.com/users/${blogID}`
@@ -12,8 +15,14 @@ const BlogDetails = () => {
             .then((res) => res.json())
             .then((data) => setBlog(data))
     }, [blogID])
+
     const { id, email, name, address, phone, website } = blog;
-    console.log(blog)
+
+    const clickHandler = () => {
+        history.push(`/blogs`);
+    }
+
+
     return (
         <div className='blogDetails-container'>
             <h1>This is my blogs detail....</h1>
@@ -25,6 +34,7 @@ const BlogDetails = () => {
             <p>Zipcode: {address?.zipcode}</p>
             <p>Phone: {phone}</p>
             <p>Website: {website}</p>
+            <Button onClick={clickHandler}>See All Blogs</Button>
         </div>
     );
 };

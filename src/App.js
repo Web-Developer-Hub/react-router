@@ -29,7 +29,7 @@ function App() {
             <BlogDetails />
           </Route>
 
-          <Route exact path="/about">
+          <Route exact path="/about_me">
             <About />
           </Route>
 
